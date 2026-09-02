@@ -1,0 +1,33 @@
+name: msc-safe-programming-sqli
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: lab/web/Dockerfile
+    ports:
+      - "127.0.0.1:8000:80"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    build:
+      context: .
+      dockerfile: lab/database/Dockerfile
+    command:
+      - --default-authentication-plugin=mysql_native_password
+      - --secure-file-priv=
+    environment:
+      MYSQL_DATABASE: sqlitraining
+      MYSQL_ROOT_PASSWORD: root
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-proot"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+volumes:
+  mysql-data:

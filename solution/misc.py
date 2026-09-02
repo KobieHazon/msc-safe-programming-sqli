@@ -2,7 +2,7 @@
 Helper functions for exercise_solver.py
 """
 
-from typing import Callable, Union
+from collections.abc import Callable
 
 
 def search_upper_bound(search_func: Callable[[int], bool]) -> int:
@@ -21,8 +21,12 @@ def search_upper_bound(search_func: Callable[[int], bool]) -> int:
     return upper_bound
 
 
-def search_value(lower_bound: int, upper_bound: int,
-                 smaller_func: Callable[[int], bool], larger_func: Callable[[int], bool]) -> Union[int, None]:
+def search_value(
+    lower_bound: int,
+    upper_bound: int,
+    smaller_func: Callable[[int], bool],
+    larger_func: Callable[[int], bool],
+) -> int | None:
     """
     Runs binary search to look for value
     :param lower_bound: start lower bound in search
