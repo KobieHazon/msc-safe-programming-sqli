@@ -5,17 +5,14 @@ This repository preserves and documents a 2023 Safe Programming coursework exerc
 > [!CAUTION]
 > The lab is intentionally vulnerable. Run it only on a trusted local machine. The maintained Compose configuration binds the web service to `127.0.0.1` and does not expose MySQL to the host.
 
-## Authorship and provenance
+## Included materials
 
-| Path | Classification | Author or source |
-| --- | --- | --- |
-| `assignment/` | Course-supplied | Safe Programming exercise material |
-| `lab/web/` | Course-supplied framework | Supplied vulnerable application; embedded pages credit Appsecco and Riyaz Walikar |
-| `lab/database/docker-entrypoint-initdb.d/` | Course-supplied framework | Recovered from the supplied database image |
-| `docker-compose.original.yml`, `scripts/` | Course-supplied framework | Original exercise launcher and image references |
-| `solution/` | Authored solution | Me |
-| `results/` | Authored submission output | Me |
-| `compose.yaml`, Dockerfiles, tests, and repository documentation | Tests and tooling | Me |
+- `assignment/`: supplied Safe Programming exercise material.
+- `lab/web/`: supplied vulnerable application; its embedded pages credit Appsecco and Riyaz Walikar.
+- `lab/database/docker-entrypoint-initdb.d/`: initialization files recovered from the supplied database image.
+- `docker-compose.original.yml` and `scripts/`: original exercise launcher and image references.
+- `solution/` and `results/`: my solution and submission output.
+- `compose.yaml`, Dockerfiles, and tests: the reproducible local environment and validation helpers.
 
 The original Docker image exports were about 303 MB and were not suitable repository source. Their small final application and initialization layers were recovered without changing their historical commits. The current Dockerfiles reconstruct equivalent local services from official base images, with a two-line `mysqli_connect_errno` compatibility update for current PHP.
 
@@ -67,7 +64,7 @@ The automated tests cover the solver's binary-search logic and do not attack an 
 - `lab/`: recovered vulnerable web application and database initialization files.
 - `solution/exercise_solver.py`: blind-SQLi database and file extraction implementation.
 - `solution/misc.py`: binary-search helpers used by the solver.
-- `results/report.pdf`: sanitized submitted report; personal details other than the author's name were removed.
+- `results/report.pdf`: my submitted report.
 - `docker-compose.original.yml`: original environment description for provenance.
 - `compose.yaml`: locally reproducible environment.
 
