@@ -65,9 +65,9 @@ The automated tests cover the solver's binary-search logic and do not attack an 
 - `solution/exercise_solver.py`: blind-SQLi database and file extraction implementation.
 - `solution/misc.py`: binary-search helpers used by the solver.
 - `results/report.pdf`: my submitted report.
-- `docker-compose.original.yml`: original environment description for provenance.
+- `docker-compose.original.yml`: original environment description for reference.
 - `compose.yaml`: locally reproducible environment.
 
 ## License
 
-No blanket license is asserted over the supplied course framework. The repository keeps file-level provenance explicit so the authored solution and supplied material are not confused.
+No blanket license is asserted over the supplied course framework. The repository clearly identifies the source of each file so the authored solution and supplied material are not confused.
